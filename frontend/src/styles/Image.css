@@ -1,0 +1,10 @@
+.image-enter, .image-enter-active, .image-enter-done {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.image-exit, .image-exit-done, .image-exit-active {
+    opacity: 1;
+    transition: 0.5s;
+}
+
