@@ -13,6 +13,7 @@ const API_URL = "https://api.thecatapi.com/v1/images/search?size=med&mime_types=
 const RandomCatUi: FC = () => {
     const [animate, setAnimate] = useState(false)
     const [urlImage, setUrlImage] = useState("https://cdn2.thecatapi.com/images/ShbKwvcD_.jpg")
+    const [nextUrl, setNextUrl] = useState("https://cdn2.thecatapi.com/images/ShbKwvcD_.jpg")
     const fetchCat = () => {
         axios.get<ResponseImage[]>(API_URL, {
             headers: {
@@ -20,15 +21,15 @@ const RandomCatUi: FC = () => {
                 "x-api-key": API_KEY
             }
         }).then(response => {
-            setUrlImage(response.data[0].url);
+            setAnimate(true)
+            setNextUrl(response.data[0].url)
         });
     }
 
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setTimeout(() => fetchCat(), 120)
-            setAnimate(true)
+            fetchCat()
         }, 5000)
 
         return () => {
@@ -43,7 +44,10 @@ const RandomCatUi: FC = () => {
                 in={animate}
                 timeout={1000}
                 classNames="image"
-                onEntered={() => setAnimate(false)}
+                onEntered={() => {
+                    setTimeout(() => setAnimate(false), 200)
+                    setUrlImage(nextUrl);
+                }}
             >
                 <img
                     src={urlImage}
