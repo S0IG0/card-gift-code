@@ -4,6 +4,8 @@ import CardUI from "./ui/CardUI.tsx";
 import LiveCSSEditor from "./ui/LiveCSSEditor.tsx";
 import SecretCardUi from "./ui/SecretCardUI.tsx";
 
+import "./styles/Image.css"
+
 
 const App: FC = () => {
     const [root, setRoot] = useState<HTMLDivElement | null>(null);
@@ -15,7 +17,7 @@ const App: FC = () => {
                     alignItems: "center",
                     flexDirection: "column"
                 }}>
-                    <div>
+                    <div style={{perspective: "1000px"}}>
                         <SecretCardUi/>
                         <CardUI/>
                     </div>

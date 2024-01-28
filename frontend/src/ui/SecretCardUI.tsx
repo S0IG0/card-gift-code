@@ -8,7 +8,7 @@ const SecretCardUi: FC = () => {
     const [value, setValue] = useState("")
     return (
         <Card
-            id="card-image1"
+            className="card-secrete-code"
             sx={{
                 transition: "1s",
                 width: 500,

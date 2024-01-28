@@ -5,7 +5,7 @@ import RandomCatUI from "./RandomCatUI.tsx";
 const CardUi: FC = () => {
     return (
         <Card
-            id="card-image2"
+            className="card-secrete-code"
             sx={{
                 transition: "1s",
                 width: 500,

@@ -1,7 +1,6 @@
 import {AspectRatio} from "@mui/joy";
 import {FC, useEffect, useState} from 'react';
 import axios from "axios";
-import "../styles/Image.css"
 import {CSSTransition} from "react-transition-group";
 
 interface ResponseImage {
